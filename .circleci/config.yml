@@ -13,9 +13,9 @@ jobs:
       - run: pip install -r requirements.txt --user circleci
       - run: python tests.py
 workflows:
-  test-and-build:
+  test:
     jobs:
-      - test
+      - test-and-build
       - docker/publish:
           image: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME
           requires: 
