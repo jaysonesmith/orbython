@@ -18,3 +18,4 @@ workflows:
       - test
       - docker/publish:
           image: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME
+          requires: test
