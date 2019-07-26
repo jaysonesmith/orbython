@@ -16,9 +16,9 @@ orbs:
 workflows:
   test:
     jobs:
-      - python/pip-run-tests
+      - python/pip-run-tests:
           image: circleci/python:3.6.8
       - docker/publish:
           image: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME
           requires: 
-            - test-and-build
+            - python/pip-run-tests
