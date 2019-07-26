@@ -1,13 +1,19 @@
 version: 2.1
 orbs:
   python: medasync/python@0.0.6
+executor:
+  python:
+    docker:
+      - image: circleci/python:3.6.8
+
 jobs:
   test:
-    executor: python/python_only
+    executor: python
     steps:
       - checkout
-      - python/install_dependencies
-      - python/run_pytest
+      - run: pip install -r requirements.txt
+      - run: python tests.py
+
 workflows:
   test:
     jobs:
