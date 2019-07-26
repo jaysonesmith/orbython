@@ -1,9 +1,9 @@
 version: 2.1
 orbs:
   docker: circleci/docker@0.5.13
-  python: medasync/python@0.0.6
+  pythono: medasync/python@0.0.6
 workflows:
   test:
     jobs:
-      - python/run_pytest
+      - pythono/run_pytest
 
