@@ -6,6 +6,7 @@ jobs:
     executor: python/python_only
     steps:
       - checkout
+      - python/install_dependencies
       - python/run_pytest
 workflows:
   test:
