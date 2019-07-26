@@ -1,15 +1,7 @@
 version: 2.1
-# orbs:
-#   pythono: medasync/python@0.0.6
-# workflows:
-#   test:
-#     jobs:
-#       - pythono/run_pytest
-
 orbs:
-    hello: circleci/hello-build@0.0.5
-
+  python: medasync/python@0.0.6
 workflows:
-    "Hello Workflow":
-        jobs:
-          - hello/hello-build
+  test:
+    jobs:
+      - python/test
