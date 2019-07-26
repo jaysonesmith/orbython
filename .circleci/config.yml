@@ -5,3 +5,5 @@ workflows:
   test:
     jobs:
       - python/test
+        - migrate_db: false
+        - test_steps: python/run_pytest
