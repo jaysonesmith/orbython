@@ -6,17 +6,17 @@ executors:
     docker:
       - image: circleci/python:3.6.8
 jobs:
-  test:
+  test-and-build:
     executor: python
     steps:
       - checkout
       - run: pip install -r requirements.txt --user circleci
       - run: python tests.py
 workflows:
-  test:
+  test-and-build:
     jobs:
       - test
       - docker/publish:
           image: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME
           requires: 
-            - test
+            - test-and-build
