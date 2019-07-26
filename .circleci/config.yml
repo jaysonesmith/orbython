@@ -2,13 +2,8 @@ version: 2.1
 orbs:
   docker: circleci/docker@0.5.13
   python: medasync/python@0.0.6
-jobs:
-  test:
-    executor: python/python_only
-    steps:
-      - run: python/run_pytest
 workflows:
   test:
     jobs:
-      - test
+      - python/run_pytest
 
