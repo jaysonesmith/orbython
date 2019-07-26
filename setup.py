@@ -1,5 +1,6 @@
 from distutils.core import setup
 
 setup(
-    name="orbython"
+    name="orbython",
+    install_requires=['pytest']
 )
