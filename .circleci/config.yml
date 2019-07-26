@@ -1,7 +1,8 @@
 version: 2.1
 orbs:
   python: medasync/python@0.0.6
-executor:
+
+executors:
   python:
     docker:
       - image: circleci/python:3.6.8
