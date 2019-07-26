@@ -1,21 +1,23 @@
 version: 2.1
 orbs:
   docker: circleci/docker@0.5.13
-executors:
-  python:
-    docker:
-      - image: circleci/python:3.6.8
-jobs:
-  test-and-build:
-    executor: python
-    steps:
-      - checkout
-      - run: pip install -r requirements.txt --user circleci
-      - run: python tests.py
+  python: cjw296/python-ci@2.0.0
+# executors:
+#   python:
+#     docker:
+#       - image: circleci/python:3.6.8
+# jobs:
+#   test-and-build:
+#     executor: python
+#     steps:
+#       - checkout
+#       - run: pip install -r requirements.txt --user circleci
+#       - run: python tests.py
 workflows:
   test:
     jobs:
-      - test-and-build
+      - python/pip-run-tests
+          image: circleci/python:3.6.8
       - docker/publish:
           image: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME
           requires: 
