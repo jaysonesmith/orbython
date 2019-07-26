@@ -1,9 +1,13 @@
 version: 2.1
 orbs:
   python: medasync/python@0.0.6
+jobs:
+  test:
+    executor: python/python_only
+    steps:
+      - checkout
+      - python/run_pytest
 workflows:
   test:
     jobs:
-      - python/test
-        - migrate_db: false
-        - test_steps: python/run_pytest
+      - test
