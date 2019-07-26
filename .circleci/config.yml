@@ -1,12 +1,10 @@
 version: 2.1
 orbs:
-  python: medasync/python@0.0.6
-
+  docker: circleci/docker@0.5.13
 executors:
   python:
     docker:
       - image: circleci/python:3.6.8
-
 jobs:
   test:
     executor: python
@@ -14,8 +12,9 @@ jobs:
       - checkout
       - run: pip install -r requirements.txt --user circleci
       - run: python tests.py
-
 workflows:
   test:
     jobs:
       - test
+      - docker/publish:
+          image: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME
