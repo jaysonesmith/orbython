@@ -6,7 +6,7 @@ jobs:
   test:
     executor: python/python_only
     steps:
-      - run: python test tests.py
+      - run: python/run_pytest
 workflows:
   test:
     jobs:
